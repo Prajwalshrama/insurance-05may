@@ -23,5 +23,14 @@ stage('Publish Test Reports') {
      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Prajwal-insurance-project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
      }
+
+stage('Create Image using the Package') {
+   steps {
+    echo 'Creating a docker image from the package'
+     sh 'docker build -t Prajwalshrama/insurance-05may:01 .'
+         }
+      }
    }
+}
+
 }
