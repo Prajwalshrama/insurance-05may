@@ -6,6 +6,17 @@ tools {
    }
 
 stages {
-  stage('Checkout')
+  stage('Checkout') {
    steps {
      echo 'Checkout the source code from Github'
+     git 'https://github.com/Prajwalshrama/insurance-05may.git'
+        }
+}
+stage('Package') {
+  steps {
+   echo 'Create a Package'
+    sh 'mvn clean package'
+        }
+     }
+   }
+}
